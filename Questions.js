@@ -47,10 +47,10 @@ var arr = [1, 2, 3];
 arr.length = 0;
 // console.log(arr);
 
-arr.splice(0 , arr.length);
+arr.splice(0, arr.length);
 // console.log(arr);
 
-while(arr.length > 0){
+while (arr.length > 0) {
     arr.pop();
 }
 // console.log(arr);
@@ -60,8 +60,8 @@ while(arr.length > 0){
 
 // integer/1 = remainder 0 -- use %
 
-function checkInt(val){
-    if(val%1 == 0){
+function checkInt(val) {
+    if (val % 1 == 0) {
         return true;
     }
 
@@ -75,7 +75,7 @@ function checkInt(val){
 // 4) Make thsi work : duplicate([1 , 2 , 3 , 4, 5]);
 // Output : [1 , 2 , 3  , 4 , 5 , 1 , 2 , 3 , 4 , 5]
 
-var arr = [1 , 2, 3 , 4 , 5];
+var arr = [1, 2, 3, 4, 5];
 
 // Spread operator
 arr.push(...arr);
@@ -88,7 +88,7 @@ console.log(arr)
 
 // 6) Reverse a number
 
-function reverseNumber(num){
+function reverseNumber(num) {
 
     // Method 1 - convert to string & reverse
     // return Number(num.toString().split('').reverse().join(''));
@@ -97,11 +97,11 @@ function reverseNumber(num){
 
     var reversedNum = 0;
 
-    while(num > 0){
+    while (num > 0) {
 
-        var rem = num%10;
-        reversedNum = reversedNum*10 + rem;
-        num = Math.floor(num/10);
+        var rem = num % 10;
+        reversedNum = reversedNum * 10 + rem;
+        num = Math.floor(num / 10);
 
     }
 
@@ -113,12 +113,12 @@ console.log(reverseNumber(12));
 
 // 7) Check string is plaindrome or not
 
-function isPalindrome(str){
+function isPalindrome(str) {
     var reversedStr = str.split('').reverse().join('');
 
-    if(str == reversedStr){
+    if (str == reversedStr) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
@@ -137,9 +137,9 @@ str.split('').sort().join('');
 
 // 9) COnvert first letter of each word to upper case
 
-function convertFirstLetterToUppercase(str){
+function convertFirstLetterToUppercase(str) {
     var ans = str.split(' ').map((word) => {
-        return word.charAt(0).toUpperCase() + word.substr(1,str.length);
+        return word.charAt(0).toUpperCase() + word.substr(1, str.length);
     })
 
     return ans.join(' ');
@@ -149,10 +149,10 @@ console.log(convertFirstLetterToUppercase('hello world'))
 
 // 10) Js function to get the occurences of each letter in teh specified string
 
-function getOccurencesOfEachChar(str){
-    var ans  = {};
+function getOccurencesOfEachChar(str) {
+    var ans = {};
 
-    for(var i = 0 ; i<str.length ; i++){
+    for (var i = 0; i < str.length; i++) {
         // if(ans[str[i]] > 0){
         //     ans[str[i]]++;
         // }else{
@@ -160,9 +160,9 @@ function getOccurencesOfEachChar(str){
         // }
 
         // Another way to check that obj contains that property
-        if(ans.hasOwnProperty(str[i]) == false){
-            ans[str[i]]  = 1;
-        }else{
+        if (ans.hasOwnProperty(str[i]) == false) {
+            ans[str[i]] = 1;
+        } else {
             ans[str[i]]++;
         }
     }
@@ -177,39 +177,39 @@ console.log(getOccurencesOfEachChar('shrutishruti'))
 
 // 11) Loop an array and add all numbers in it
 
-var arr = [ 1 ,2  , 3 , 4 , 5];
+var arr = [1, 2, 3, 4, 5];
 
-var ans = arr.reduce((sum , curr) => {
+var ans = arr.reduce((sum, curr) => {
     sum += curr;
 
     return sum;
-} , 0);
+}, 0);
 
 console.log(ans);
 
 // 12 ) in an array of numbers & strings -- only add numbers
 
-var arr = [ 1 , , 'nxjsncjsnc' , 2 , 'mckjsdncjkc'  , 4 , 5];
+var arr = [1, , 'nxjsncjsnc', 2, 'mckjsdncjkc', 4, 5];
 
-var ans = arr.reduce((sum , curr) => {
+var ans = arr.reduce((sum, curr) => {
 
-    if(typeof(curr) == 'number'){
+    if (typeof (curr) == 'number') {
         sum += curr;
     }
 
 
     return sum;
-} , 0);
+}, 0);
 
 console.log(ans);
 
 // 13 ) Loop an array of objects and rmeove all objects which don't have gender's value male
 
 var arrOfObjects = [
-    {name : 'Shruti' , gender : 'male'},
-    {name : 'Shruti' , gender : 'female'},
-    {name : 'Shruti' , gender : 'male'},
-    {name : 'Shruti' , gender : 'female'},
+    { name: 'Shruti', gender: 'male' },
+    { name: 'Shruti', gender: 'female' },
+    { name: 'Shruti', gender: 'male' },
+    { name: 'Shruti', gender: 'female' },
 ]
 
 var ans13 = arrOfObjects.filter((ele) => {
@@ -217,3 +217,58 @@ var ans13 = arrOfObjects.filter((ele) => {
 })
 
 console.log(ans13);
+
+//-------------------- Arraysss
+// 14)clone an array -- Spread operator , push by iterating , Map
+
+var arrOriginal = [1, 2]
+var clonedArr = [...arrOriginal];
+console.log(clonedArr);
+
+// 15) Js function to get the first n ele of an array -- passing a parameter 'n' will return the first 'n' elements of the array
+
+function firstNElements(arr , n){
+    return arr.splice(0 , n);
+}
+
+console.log(firstNElements([1 , 2 , 3 ] , 12))
+
+// 16) Last n elements
+
+function lastNElements(arr , n){
+      // Use slice to get the last n elements
+      return arr.slice(arr.length - n);
+}
+
+console.log(lastNElements([1 , 2 , 3 ] , 2))
+
+// 17) JS program to find most frequent ele of the array
+
+var freq = {};
+
+var arr17 = [1 , 2 , 2, 2 , 2, 2 , 6 , 7];
+
+for(let i = 0 ; i<arr17.length ; i++){
+    if(freq.hasOwnProperty(arr17[i])){
+        freq[arr17[i]]++;
+    }else{
+        freq[arr17[i]] = 1;
+    }
+}
+
+console.log(freq);
+
+var mxFreq = Number.MIN_SAFE_INTEGER;
+
+for(let key in freq){
+    mxFreq = Math.max(mxFreq , freq[key]);
+}
+
+console.log(mxFreq);
+
+// 18) UNion of two Arrays
+function union(arr1 , arr2){
+    return [...new Set(arr1.concat(arr2))];
+}
+
+console.log(union([1 , 2 ] , [3 , 4 , 2]));
