@@ -172,3 +172,48 @@ function getOccurencesOfEachChar(str){
 }
 
 console.log(getOccurencesOfEachChar('shrutishruti'))
+
+// ----------------------- LOOPS -----------------------------
+
+// 11) Loop an array and add all numbers in it
+
+var arr = [ 1 ,2  , 3 , 4 , 5];
+
+var ans = arr.reduce((sum , curr) => {
+    sum += curr;
+
+    return sum;
+} , 0);
+
+console.log(ans);
+
+// 12 ) in an array of numbers & strings -- only add numbers
+
+var arr = [ 1 , , 'nxjsncjsnc' , 2 , 'mckjsdncjkc'  , 4 , 5];
+
+var ans = arr.reduce((sum , curr) => {
+
+    if(typeof(curr) == 'number'){
+        sum += curr;
+    }
+
+
+    return sum;
+} , 0);
+
+console.log(ans);
+
+// 13 ) Loop an array of objects and rmeove all objects which don't have gender's value male
+
+var arrOfObjects = [
+    {name : 'Shruti' , gender : 'male'},
+    {name : 'Shruti' , gender : 'female'},
+    {name : 'Shruti' , gender : 'male'},
+    {name : 'Shruti' , gender : 'female'},
+]
+
+var ans13 = arrOfObjects.filter((ele) => {
+    return ele['gender'] != 'male';
+})
+
+console.log(ans13);
